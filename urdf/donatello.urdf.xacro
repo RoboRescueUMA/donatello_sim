@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+
+<!-- TO-DO -->
+<!-- change sizes -->
+<!-- change inertia -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="donatello">
+
+    <xacro:include filename="donatello_include.xacro"/>
+
+    <xacro:property name="pi" value="3.1415926"/>
+    <xacro:property name="sqrt_2" value="1.41421356"/>
+
+
+
+
+    <!-- LINKS -->
+
+    <link name="dummy_link">
+    </link>
+
+    <link name="base_link"> 
+        <visual>
+            <geometry>
+                <box size="1 0.6 0.4"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="1 0.6 0.4"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.021" iyz="0.0" izz="0.1"/>
+        </inertial>
+    </link>
+
+    
+    <link name="rear_axle_link">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.025"/>
+            </geometry>
+            <origin xyz="${-0.05/2} 0 0" rpy="0 ${-pi/2} 0"/>
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.05 0.6 0.05"/>
+            </geometry>
+            <origin xyz="${-0.05-0.05/2} 0 0" rpy="0 0 0"/>
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 0.4"/>
+            </geometry>
+            <origin xyz="${-0.05-0.05/2} ${0.6/2+0.05/2} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 0.4"/>
+            </geometry>
+            <origin xyz="${-0.05-0.05/2} ${-(0.6/2+0.05/2)} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder length="0.05" radius="0.025"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 ${-pi/2} 0"/>
+        </collision>
+        <collision>
+            <geometry>
+                <box size="0.05 0.6 0.05"/>
+            </geometry>
+            <origin xyz="${-0.05-0.05/2} 0 0" rpy="0 0 0"/>
+        </collision>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 0.4"/>
+            </geometry>
+            <origin xyz="${-0.05-0.05/2} ${0.6/2+0.05/2} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+        </collision>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 0.4"/>
+            </geometry>
+            <origin xyz="${-0.05-0.05/2} ${-(0.6/2+0.05/2)} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+        </collision>
+
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.021" iyz="0.0" izz="0.1"/>
+        </inertial>
+
+    </link>
+
+
+    <link name="front_left_axle_link">
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+        </collision>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+        </collision>
+
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.021" iyz="0.0" izz="0.1"/>
+        </inertial>
+    </link>
+
+    <link name="front_right_axle_link">
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+        </collision>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+            </geometry>
+            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+        </collision>
+
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.021" iyz="0.0" izz="0.1"/>
+        </inertial>
+    </link>
+ 
+    
+    <!-- JOINTS -->
+
+    <joint name="dummy_joint" type="fixed">
+        <parent link="dummy_link"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    
+    <joint name="rear_axle_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="rear_axle_link"/>
+        <origin xyz="${-1/2} 0 -0.15" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="front_left_axle_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_left_axle_link"/>
+        <origin xyz="0.3 ${0.3+0.05/2} -0.15" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="front_right_axle_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_right_axle_link"/>
+        <origin xyz="0.3 ${-(0.3+0.05/2)} -0.15" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- 
+        <xacro:wheel prefix="" parent="" x="${}" y="${}" z="${}" roll="${}"/>
+    -->
+
+    <xacro:wheel prefix="back_left_wheel" parent="rear_axle_link" x="${-0.05-0.05/2}" y="${0.6/2+0.05+0.1/2}" z="-0.4" roll="${pi/2}"/>
+    <xacro:wheel prefix="back_right_wheel" parent="rear_axle_link" x="${-0.05-0.05/2}" y="${-(0.6/2+0.05+0.1/2)}" z="-0.4" roll="${-pi/2}"/>
+
+    <xacro:wheel prefix="center_left_wheel" parent="front_left_axle_link" x="${-0.4}" y="${0.05/2+0.1/2}" z="${-0.4}" roll="${pi/2}"/>
+    <xacro:wheel prefix="center_right_wheel" parent="front_right_axle_link" x="${-0.4}" y="${-(0.05/2+0.1/2)}" z="${-0.4}" roll="${-pi/2}"/>
+
+    <xacro:wheel prefix="front_left_wheel" parent="front_left_axle_link" x="${0.4}" y="${0.05/2+0.1/2}" z="${-0.4}" roll="${pi/2}"/>
+    <xacro:wheel prefix="front_right_wheel" parent="front_right_axle_link" x="${0.4}" y="${-(0.05/2+0.1/2)}" z="${-0.4}" roll="${-pi/2}"/>
+</robot>
+
+<!-- 
+EJECUTAR ESTA LINEA ANTES DE HACER catkin_make
+
+rosrun xacro xacro ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf.xacro > ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
+
+check_urdf ~/catkin_ws/donatello_sim/urdf/donatello.urdf
+
+-->
