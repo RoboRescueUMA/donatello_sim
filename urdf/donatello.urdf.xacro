@@ -11,7 +11,25 @@
     <xacro:property name="pi" value="3.1415926"/>
     <xacro:property name="sqrt_2" value="1.41421356"/>
 
+    <!-- SIZES -->
 
+    <xacro:property name="prism_width" value="0.05"/>
+ 
+    <xacro:property name="base_x" value="1.0"/>
+    <xacro:property name="base_y" value="0.6"/>
+    <xacro:property name="base_z" value="0.4"/>
+
+    <xacro:property name="rear_cyl_l" value="0.05"/>
+    <xacro:property name="rear_cyl_r" value="0.025"/>
+    <xacro:property name="rear_width" value="0.6"/>
+
+    <xacro:property name="axle_height" value="0.4"/>
+
+    <xacro:property name="wheel_width" value="0.1"/>
+    <xacro:property name="wheel_radius" value="0.1"/>
+    
+
+    <!-- INERTIA -->
 
 
     <!-- LINKS -->
@@ -22,12 +40,12 @@
     <link name="base_link"> 
         <visual>
             <geometry>
-                <box size="1 0.6 0.4"/>
+                <box size="${base_x} ${base_y} ${base_z}"/>
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <box size="1 0.6 0.4"/>
+                <box size="${base_x} ${base_y} ${base_z}"/>
             </geometry>
         </collision>
         <inertial>
@@ -41,52 +59,52 @@
     <link name="rear_axle_link">
         <visual>
             <geometry>
-                <cylinder length="0.05" radius="0.025"/>
+                <cylinder length="${rear_cyl_l}" radius="${rear_cyl_r}"/>
             </geometry>
-            <origin xyz="${-0.05/2} 0 0" rpy="0 ${-pi/2} 0"/>
+            <origin xyz="${-rear_cyl_l/2} 0 0" rpy="0 ${-pi/2} 0"/>
         </visual>
         <visual>
             <geometry>
-                <box size="0.05 0.6 0.05"/>
+                <box size="${prism_width} ${rear_width} ${prism_width}"/>
             </geometry>
-            <origin xyz="${-0.05-0.05/2} 0 0" rpy="0 0 0"/>
+            <origin xyz="${-rear_cyl_l-prism_width/2} 0 0" rpy="0 0 0"/>
         </visual>
         <visual>
             <geometry>
-                <box size="0.05 0.05 0.4"/>
+                <box size="${prism_width} ${prism_width} ${axle_height}"/>
             </geometry>
-            <origin xyz="${-0.05-0.05/2} ${0.6/2+0.05/2} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+            <origin xyz="${-rear_cyl_l-prism_width/2} ${rear_width/2+prism_width/2} ${-axle_height/2+prism_width/2}" rpy="0 0 0"/>
         </visual>
         <visual>
             <geometry>
-                <box size="0.05 0.05 0.4"/>
+                <box size="${prism_width} ${prism_width} ${axle_height}"/>
             </geometry>
-            <origin xyz="${-0.05-0.05/2} ${-(0.6/2+0.05/2)} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+            <origin xyz="${-rear_cyl_l-prism_width/2} ${-(rear_width/2+prism_width/2)} ${-axle_height/2+prism_width/2}" rpy="0 0 0"/>
         </visual>
 
         <collision>
             <geometry>
-                <cylinder length="0.05" radius="0.025"/>
+                <cylinder length="${rear_cyl_l}" radius="${rear_cyl_r}"/>
             </geometry>
-            <origin xyz="0 0 0" rpy="0 ${-pi/2} 0"/>
+            <origin xyz="${-rear_cyl_l/2} 0 0" rpy="0 ${-pi/2} 0"/>
         </collision>
         <collision>
             <geometry>
-                <box size="0.05 0.6 0.05"/>
+                <box size="${prism_width} ${rear_width} ${prism_width}"/>
             </geometry>
-            <origin xyz="${-0.05-0.05/2} 0 0" rpy="0 0 0"/>
+            <origin xyz="${-rear_cyl_l-prism_width/2} 0 0" rpy="0 0 0"/>
         </collision>
         <collision>
             <geometry>
-                <box size="0.05 0.05 0.4"/>
+                <box size="${prism_width} ${prism_width} ${axle_height}"/>
             </geometry>
-            <origin xyz="${-0.05-0.05/2} ${0.6/2+0.05/2} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+            <origin xyz="${-rear_cyl_l-prism_width/2} ${rear_width/2+prism_width/2} ${-axle_height/2+prism_width/2}" rpy="0 0 0"/>
         </collision>
         <collision>
             <geometry>
-                <box size="0.05 0.05 0.4"/>
+                <box size="${prism_width} ${prism_width} ${axle_height}"/>
             </geometry>
-            <origin xyz="${-0.05-0.05/2} ${-(0.6/2+0.05/2)} ${-0.4/2+0.05/2}" rpy="0 0 0"/>
+            <origin xyz="${-rear_cyl_l-prism_width/2} ${-(rear_width/2+prism_width/2)} ${-axle_height/2+prism_width/2}" rpy="0 0 0"/>
         </collision>
 
         <inertial>
@@ -101,28 +119,28 @@
     <link name="front_left_axle_link">
         <visual>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+            <origin xyz="${-axle_height/2} 0 ${-axle_height/2}" rpy="0 ${pi/4} 0"/>
         </visual>
         <visual>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+            <origin xyz="${axle_height/2} 0 ${-axle_height/2}" rpy="0 ${-pi/4} 0"/>
         </visual>
 
         <collision>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+            <origin xyz="${-axle_height/2} 0 ${-axle_height/2}" rpy="0 ${pi/4} 0"/>
         </collision>
         <collision>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+            <origin xyz="${axle_height/2} 0 ${-axle_height/2}" rpy="0 ${-pi/4} 0"/>
         </collision>
 
         <inertial>
@@ -135,28 +153,28 @@
     <link name="front_right_axle_link">
         <visual>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+            <origin xyz="${-axle_height/2} 0 ${-axle_height/2}" rpy="0 ${pi/4} 0"/>
         </visual>
         <visual>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+            <origin xyz="${axle_height/2} 0 ${-axle_height/2}" rpy="0 ${-pi/4} 0"/>
         </visual>
 
         <collision>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${-0.4/2} 0 ${-0.4/2}" rpy="0 ${pi/4} 0"/>
+            <origin xyz="${-axle_height/2} 0 ${-axle_height/2}" rpy="0 ${pi/4} 0"/>
         </collision>
         <collision>
             <geometry>
-                <box size="0.05 0.05 ${sqrt_2*0.4}"/>
+                <box size="${prism_width} ${prism_width} ${sqrt_2*base_z}"/>
             </geometry>
-            <origin xyz="${0.4/2} 0 ${-0.4/2}" rpy="0 ${-pi/4} 0"/>
+            <origin xyz="${axle_height/2} 0 ${-axle_height/2}" rpy="0 ${-pi/4} 0"/>
         </collision>
 
         <inertial>
@@ -178,36 +196,33 @@
     <joint name="rear_axle_joint" type="continuous">
         <parent link="base_link"/>
         <child link="rear_axle_link"/>
-        <origin xyz="${-1/2} 0 -0.15" rpy="0 0 0"/>
+        <origin xyz="${-base_x/2} 0 -0.15" rpy="0 0 0"/>
         <axis xyz="1 0 0"/>
     </joint>
 
     <joint name="front_left_axle_joint" type="continuous">
         <parent link="base_link"/>
         <child link="front_left_axle_link"/>
-        <origin xyz="0.3 ${0.3+0.05/2} -0.15" rpy="0 0 0"/>
+        <origin xyz="0.3 ${0.3+prism_width/2} -0.15" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
 
     <joint name="front_right_axle_joint" type="continuous">
         <parent link="base_link"/>
         <child link="front_right_axle_link"/>
-        <origin xyz="0.3 ${-(0.3+0.05/2)} -0.15" rpy="0 0 0"/>
+        <origin xyz="0.3 ${-(0.3+prism_width/2)} -0.15" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
 
-    <!-- 
-        <xacro:wheel prefix="" parent="" x="${}" y="${}" z="${}" roll="${}"/>
-    -->
 
-    <xacro:wheel prefix="back_left_wheel" parent="rear_axle_link" x="${-0.05-0.05/2}" y="${0.6/2+0.05+0.1/2}" z="-0.4" roll="${pi/2}"/>
-    <xacro:wheel prefix="back_right_wheel" parent="rear_axle_link" x="${-0.05-0.05/2}" y="${-(0.6/2+0.05+0.1/2)}" z="-0.4" roll="${-pi/2}"/>
+    <xacro:wheel prefix="back_left_wheel" parent="rear_axle_link" x="${-rear_cyl_l-prism_width/2}" y="${rear_width/2+prism_width+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${pi/2}"/>
+    <xacro:wheel prefix="back_right_wheel" parent="rear_axle_link" x="${-rear_cyl_l-prism_width/2}" y="${-(rear_width/2+prism_width+0.1/2)}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
 
-    <xacro:wheel prefix="center_left_wheel" parent="front_left_axle_link" x="${-0.4}" y="${0.05/2+0.1/2}" z="${-0.4}" roll="${pi/2}"/>
-    <xacro:wheel prefix="center_right_wheel" parent="front_right_axle_link" x="${-0.4}" y="${-(0.05/2+0.1/2)}" z="${-0.4}" roll="${-pi/2}"/>
+    <xacro:wheel prefix="center_left_wheel" parent="front_left_axle_link" x="${-axle_height}" y="${prism_width/2+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${pi/2}"/>
+    <xacro:wheel prefix="center_right_wheel" parent="front_right_axle_link" x="${-axle_height}" y="${-(prism_width/2+0.1/2)}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
 
-    <xacro:wheel prefix="front_left_wheel" parent="front_left_axle_link" x="${0.4}" y="${0.05/2+0.1/2}" z="${-0.4}" roll="${pi/2}"/>
-    <xacro:wheel prefix="front_right_wheel" parent="front_right_axle_link" x="${0.4}" y="${-(0.05/2+0.1/2)}" z="${-0.4}" roll="${-pi/2}"/>
+    <xacro:wheel prefix="front_left_wheel" parent="front_left_axle_link" x="${axle_height}" y="${prism_width/2+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${pi/2}"/>
+    <xacro:wheel prefix="front_right_wheel" parent="front_right_axle_link" x="${axle_height}" y="${-(prism_width/2+0.1/2)}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
 </robot>
 
 <!-- 
@@ -215,6 +230,6 @@ EJECUTAR ESTA LINEA ANTES DE HACER catkin_make
 
 rosrun xacro xacro ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf.xacro > ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
 
-check_urdf ~/catkin_ws/donatello_sim/urdf/donatello.urdf
+check_urdf ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
 
 -->

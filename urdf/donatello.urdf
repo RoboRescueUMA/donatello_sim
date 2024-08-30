@@ -7,18 +7,20 @@
 <!-- change sizes -->
 <!-- change inertia -->
 <robot name="donatello">
+  <!-- SIZES -->
+  <!-- INERTIA -->
   <!-- LINKS -->
   <link name="dummy_link">
     </link>
   <link name="base_link">
     <visual>
       <geometry>
-        <box size="1 0.6 0.4"/>
+        <box size="1.0 0.6 0.4"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <box size="1 0.6 0.4"/>
+        <box size="1.0 0.6 0.4"/>
       </geometry>
     </collision>
     <inertial>
@@ -56,7 +58,7 @@
       <geometry>
         <cylinder length="0.05" radius="0.025"/>
       </geometry>
-      <origin rpy="0 -1.5707963 0" xyz="0 0 0"/>
+      <origin rpy="0 -1.5707963 0" xyz="-0.025 0 0"/>
     </collision>
     <collision>
       <geometry>
@@ -168,9 +170,6 @@
     <origin rpy="0 0 0" xyz="0.3 -0.325 -0.15"/>
     <axis xyz="0 1 0"/>
   </joint>
-  <!-- 
-        <xacro:wheel prefix="" parent="" x="${}" y="${}" z="${}" roll="${}"/>
-    -->
   <link name="back_left_wheel_link">
     <visual>
       <geometry>
@@ -327,7 +326,7 @@ EJECUTAR ESTA LINEA ANTES DE HACER catkin_make
 
 rosrun xacro xacro ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf.xacro > ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
 
-check_urdf ~/catkin_ws/donatello_sim/urdf/donatello.urdf
+check_urdf ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
 
 -->
 
