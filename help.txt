@@ -1,6 +1,8 @@
 Made by CarlosLópezLovera and IvánMorenoLadaga.
 
-24/10/24.
+Primera isntalación hacer también:
+$ sudo apt-get install liburdfdom-tools
+
     Para editar donatello.urdf :
         $ code ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
 
@@ -11,10 +13,13 @@ Made by CarlosLópezLovera and IvánMorenoLadaga.
             $ rosrun xacro xacro ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf.xacro > ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
 
         $ rosparam set /robot_description -t ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
+        
         Esto ajusta los parámetros de donatello.urdf a RobotModel dentro de RViz, por lo que:
         $ roscore
         $ rviz
         Dentro de rviz:
             Pulsar "Add" en el menú de la izquierda.
             Seleccionar "RobotModel".
+            
+--ERROR GLOBAL STATUS, SOLUCIONAR MOVIENDO A CATKIN_WS--
 

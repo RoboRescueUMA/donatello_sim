@@ -1,17 +1,10 @@
-<?xml version="1.0" ?>
 <launch>
-	<arg name = "model"/>
-	<param name = "donatello"
-	textfile = "$ /media/ivan/ssd1tb/Uni/RoboRescue/donatello_sim/urdf/donatello.urdf" />
-	
-<node name = "joint_state_publisher_gui"
-pkg = "joint_state_publisher_gui"
-type = "joint_state_publisher_gui" />
+  <!-- Lanzar robot_state_publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+    <param name="robot_description" command="$/media/ivan/ssd1tb/Uni/RoboRescue/donatello_sim/urdf/donatello.urdf.xacro" />
+  </node>
 
-	<node name = "donatello_state_publisher" pkg = "donatello_state_publisher" type = "donatello_state_publisher" />
-	<node name = "rviz" pkg = "rviz" type = "rviz"
-	args = "-d $  required = "true"
-	/>
-	
-
+  <!-- Lanzar Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $/media/ivan/ssd1tb/Uni/RoboRescue/donatello_sim/rviz/donatello.rviz" />
 </launch>
+
