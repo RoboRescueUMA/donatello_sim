@@ -12,9 +12,9 @@ Made by CarlosLópezLovera and IvánMorenoLadaga.
 
         $ rosparam set /robot_description -t ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
         Esto ajusta los parámetros de donatello.urdf a RobotModel dentro de RViz, por lo que:
+        $ roscore
         $ rviz
         Dentro de rviz:
             Pulsar "Add" en el menú de la izquierda.
             Seleccionar "RobotModel".
 
-25/10/24.

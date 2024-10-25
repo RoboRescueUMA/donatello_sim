@@ -20,6 +20,10 @@
       <geometry>
         <box size="5.0 3.48 1.65"/> <!-- Geometría. x y z (altura). -->
       </geometry>
+      
+      <material name = "yellow">
+  	<color rgba="1 1 0 1"/>
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -37,40 +41,44 @@
 
  <!-- Link trasero -->
   <link name="rear_axle_link">
+
     <visual>
       <geometry>
         <cylinder length="0.3" radius="0.06"/>  <!-- Geometría del cilíndro -->
       </geometry>
-      <origin rpy="0 -1.5707963 0" xyz="1 0 0"/> <!-- Origen. rpy: lugar de uniones. xyz: espacio. -->
+      <origin rpy="0 -1.5707963 0" xyz="3.3 0 0"/> <!-- Origen. rpy: lugar de uniones (roll pitch yaw, ejes xyz pero de giro). xyz: espacio. -->
+      <material name = "yellow">
+  	<color rgba="1 1 0 1"/>
+      </material>
     </visual>
 
     <visual>    
       <geometry>
         <box size="0.3 3.5 0.3"/>   <!-- Perfil horizontal -->
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="3 0 0"/>
     </visual>
 
     <visual>
       <geometry>
         <box size="0.3 0.3 1.5"/> <!-- Perfil vertical izquierdo -->
       </geometry>
-      <origin rpy="0 0 0" xyz="0 1.7 -0.75"/>
+      <origin rpy="0 0 0" xyz="3 1.6 -0.75"/>
     </visual>
 
     <visual>
       <geometry>
         <box size="0.3 0.3 1.5"/> <!-- Perfil vertical derecho -->
       </geometry>
-      <origin rpy="0 0 0" xyz="0 -1.55 -0.9"/>
+      <origin rpy="0 0 0" xyz="3 -1.6 -0.75"/>
     </visual>
     <!-- 24/10/24 -->
 
     <collision>
       <geometry>
-        <cylinder length="0.05" radius="0.025"/>
+        <cylinder length="0.3" radius="0.06"/>
       </geometry>
-      <origin rpy="0 -1.5707963 0" xyz="-0.025 0 0"/>
+      <origin rpy="0 -1.5707963 0" xyz="-0.3 0 0"/>
     </collision>
     <collision>
       <geometry>
@@ -103,25 +111,25 @@
       <geometry>
         <box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
+      <origin rpy="0 0.78539815 0" xyz="-1 -1.95 -1"/>
     </visual>
     <visual>
       <geometry>
         <box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
+      <origin rpy="0 -0.78539815 0" xyz="1 -1.95 -1"/>
     </visual>
     <collision>
       <geometry>
         <box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
+      <origin rpy="0 0.78539815 0" xyz="-1 -1.95 -1"/>
     </collision>
     <collision>
       <geometry>
         <box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
+      <origin rpy="0 -0.78539815 0" xyz="1 -1.95 -1"/>
     </collision>
     <inertial>
       <mass value="1.0"/>
@@ -136,25 +144,25 @@
       <geometry>
         <box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
+      <origin rpy="0 0.78539815 0" xyz="-1 1.95 -1"/>
     </visual>
     <visual>
       <geometry>
 	<box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
+      <origin rpy="0 -0.78539815 0" xyz="1 1.95 -1"/>
     </visual>
     <collision>
       <geometry>
 	<box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
+      <origin rpy="0 0.78539815 0" xyz="-1 1.95 -1"/>
     </collision>
     <collision>
       <geometry>
 	<box size="0.3 0.3 2.6"/>
       </geometry>
-      <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
+      <origin rpy="0 -0.78539815 0" xyz="1 1.95 -1"/>
     </collision>
     <inertial>
       <mass value="1.0"/>

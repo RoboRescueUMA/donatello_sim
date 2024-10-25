@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Lanzar el servidor de Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+
+  <!-- Spawn del modelo URDF en Gazebo -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-file $(find donatello_sim)/urdf/donatello.urdf -urdf -model donatello" output="screen"/>
+
+  <param name="robot_description" textfile="$(find donatello_sim)/urdf/donatello.urdf"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+  
+
+</launch>
