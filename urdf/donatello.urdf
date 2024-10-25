@@ -6,7 +6,7 @@
 <!-- TO-DO -->
 <!-- change sizes -->
 <!-- change inertia -->
-<!-- MEDIDAS EN DECIMETROS -->
+<!-- MEDIDAS EN METROS -->
 <robot name="donatello">
   <!-- SIZES -->
   <!-- INERTIA -->
@@ -41,28 +41,28 @@
       <geometry>
         <cylinder length="0.3" radius="0.06"/>  <!-- Geometría del cilíndro -->
       </geometry>
-      <origin rpy="0 -1.5707963 0" xyz="-1 0 0"/> <!-- Origen. rpy: lugar de uniones. xyz: espacio. -->
+      <origin rpy="0 -1.5707963 0" xyz="1 0 0"/> <!-- Origen. rpy: lugar de uniones. xyz: espacio. -->
     </visual>
 
-    <visual>
+    <visual>    
       <geometry>
         <box size="0.3 3.5 0.3"/>   <!-- Perfil horizontal -->
       </geometry>
-      <origin rpy="0 0 0" xyz="-0.07500000000000001 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
 
     <visual>
       <geometry>
         <box size="0.3 0.3 1.5"/> <!-- Perfil vertical izquierdo -->
       </geometry>
-      <origin rpy="0 0 0" xyz="-0.07500000000000001 0.325 -0.17500000000000002"/>
+      <origin rpy="0 0 0" xyz="0 1.7 -0.75"/>
     </visual>
 
     <visual>
       <geometry>
         <box size="0.3 0.3 1.5"/> <!-- Perfil vertical derecho -->
       </geometry>
-      <origin rpy="0 0 0" xyz="-0.07500000000000001 -0.325 -0.17500000000000002"/>
+      <origin rpy="0 0 0" xyz="0 -1.55 -0.9"/>
     </visual>
     <!-- 24/10/24 -->
 
@@ -96,29 +96,30 @@
       <inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.021" iyz="0.0" izz="0.1"/>
     </inertial>
   </link>
-
+  
+ <!-- Triangulo Base Izquierdo -->
   <link name="front_left_axle_link">
     <visual>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+        <box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
     </visual>
     <visual>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+        <box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
     </visual>
     <collision>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+        <box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
     </collision>
     <collision>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+        <box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
     </collision>
@@ -128,28 +129,30 @@
       <inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.021" iyz="0.0" izz="0.1"/>
     </inertial>
   </link>
+  
+   <!-- Triangulo Base Derecho-->
   <link name="front_right_axle_link">
     <visual>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+        <box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
     </visual>
     <visual>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+	<box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
     </visual>
     <collision>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+	<box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 0.78539815 0" xyz="-0.2 0 -0.2"/>
     </collision>
     <collision>
       <geometry>
-        <box size="0.05 0.05 0.5656854240000001"/>
+	<box size="0.3 0.3 2.6"/>
       </geometry>
       <origin rpy="0 -0.78539815 0" xyz="0.2 0 -0.2"/>
     </collision>
@@ -159,6 +162,7 @@
       <inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.021" iyz="0.0" izz="0.1"/>
     </inertial>
   </link>
+  
   <!-- JOINTS -->
   <joint name="dummy_joint" type="fixed">
     <parent link="dummy_link"/>
