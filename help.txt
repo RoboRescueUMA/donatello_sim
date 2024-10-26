@@ -1,16 +1,7 @@
 Made by CarlosLópezLovera and IvánMorenoLadaga.
 
 Primera isntalación hacer también:
-$ sudo apt-get install liburdfdom-tools
 
-    Para editar donatello.urdf :
-        $ code ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
-
-    Para subir la configuración de donatello.urdf:
-
-        (Proyecto anterior)
-            EJECUTAR ESTA LINEA ANTES DE HACER catkin_make
-            $ rosrun xacro xacro ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf.xacro > ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
 
         $ rosparam set /robot_description -t ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
         
@@ -21,7 +12,6 @@ $ sudo apt-get install liburdfdom-tools
             Pulsar "Add" en el menú de la izquierda.
             Seleccionar "RobotModel".
             
---ERROR GLOBAL STATUS, SOLUCIONAR MOVIENDO A CATKIN_WS--
 Crear un catkin_ws
 	1º Estando en el inicio de los archivos (al hacer ls aparece bin, opt...) creamos una carpeta para el WS con src dentro:
 		$ mkdir "Carpeta"/src
@@ -30,6 +20,7 @@ Crear un catkin_ws
 		$ catkin_make
 	4º Añadimos a la carperta share de ros:
 		$ source ~/"carpeta"/devel/setup.bash
+		SOLO FUNCIONA PARA SU TERMINAL
 		Podemos comprobarlo con:
 		$ echo $ROS_PACKAGE_PATH
 	5º $ cd src/
@@ -45,8 +36,6 @@ Crear un catkin_ws
 			- No encuentra geometry_msg => Ir a la carpeta del paquete y en "CMakeList.txt" añadirle una "s"
 	11º $ roslaunch "Paquete" "Archivo".launch
 		Errores:
-			- RLException: [donatello.launch] is neither a launch file in package [donatello_model_pkg] nor is [donatello_model_pkg] a launch file name
-			The traceback for the exception was written to the log file	----SIN SOLUCIÓN----
-
-
-	
+			- RLException: [donatello.launch] is neither a launch file in package [donatello_model_pkg] nor is 	[donatello_model_pkg] a launch file name
+			The traceback for the exception was written to the log file	
+			=> Hacer el source y el roslaunch en el mismo terminal 
