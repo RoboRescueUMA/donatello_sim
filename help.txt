@@ -22,4 +22,31 @@ $ sudo apt-get install liburdfdom-tools
             Seleccionar "RobotModel".
             
 --ERROR GLOBAL STATUS, SOLUCIONAR MOVIENDO A CATKIN_WS--
+Crear un catkin_ws
+	1º Estando en el inicio de los archivos (al hacer ls aparece bin, opt...) creamos una carpeta para el WS con src dentro:
+		$ mkdir "Carpeta"/src
+	2º $ cd "Sarpeta"
+	3º Creamos el entorno de trabajo:
+		$ catkin_make
+	4º Añadimos a la carperta share de ros:
+		$ source ~/"carpeta"/devel/setup.bash
+		Podemos comprobarlo con:
+		$ echo $ROS_PACKAGE_PATH
+	5º $ cd src/
+	6º Creamos el paquete con las dependencias:
+		$ catkin_create_pkg "Paquete" roscpp tf2 geometry_msg urdf rviz joint_state_publisher_gui
+	7º $ cd "Paquete"
+	   $ mkdir urdf
+	   $ mkdir launch
+	8º Ponemos nuestros archivos urdf y launch en sus carpetas correspondientes.
+	9º $ cd ~/"carpeta"
+	10º $ catkin_make
+		Errores:
+			- No encuentra geometry_msg => Ir a la carpeta del paquete y en "CMakeList.txt" añadirle una "s"
+	11º $ roslaunch "Paquete" "Archivo".launch
+		Errores:
+			- RLException: [donatello.launch] is neither a launch file in package [donatello_model_pkg] nor is [donatello_model_pkg] a launch file name
+			The traceback for the exception was written to the log file	----SIN SOLUCIÓN----
 
+
+	
