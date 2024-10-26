@@ -9,12 +9,12 @@ project(donatello_sim)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  gazebo_ros
+  rviz
+  xacro
+  urdf
   joint_state_publisher
   joint_state_publisher_gui
   robot_state_publisher
-  xacro
-  urdf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -109,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES donatello
-  CATKIN_DEPENDS roscpp gazebo_ros joint_state_publisher joint_state_publisher_gui robot_state_publisher xacro urdf
+  CATKIN_DEPENDS roscpp rviz xacro urdf joint_state_publisher joint_state_publisher_gui robot_state_publisher 
 #  DEPENDS system_lib
 )
 
