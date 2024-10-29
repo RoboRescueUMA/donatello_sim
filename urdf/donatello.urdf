@@ -144,13 +144,13 @@
       <geometry>
         <box size="0.03 0.03 0.26"/>
       </geometry>
-      <origin rpy="0 0.78539815 0" xyz="-0.1 0.195 -0.1"/>
+      <origin rpy="0 0.78539815 0" xyz="-0.175 0.1 0.025"/>
     </visual>
     <visual>
       <geometry>
 	<box size="0.03 0.03 0.26"/>
       </geometry>
-      <origin rpy="0 -0.78539815 0" xyz="0.1 0.195 -0.1"/>
+      <origin rpy="0 -0.78539815 0" xyz="0.025 0.1 0.025"/>
     </visual>
     <collision>
       <geometry>
