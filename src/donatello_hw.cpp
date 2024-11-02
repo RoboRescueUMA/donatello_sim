@@ -5,44 +5,44 @@
 Donatello::Donatello() : RobotHW(){
 
     // connect and register the joint state interface
-    hardware_interface::JointStateHandle state_handle_a("A", &pos[0], &vel[0], &eff[0]);
+    hardware_interface::JointStateHandle state_handle_a("back_left_wheel_joint", &pos[0], &vel[0], &eff[0]);
     jnt_state_interface.registerHandle(state_handle_a);
 
-    hardware_interface::JointStateHandle state_handle_b("B", &pos[1], &vel[1], &eff[1]);
+    hardware_interface::JointStateHandle state_handle_b("center_left_wheel_joint", &pos[1], &vel[1], &eff[1]);
     jnt_state_interface.registerHandle(state_handle_b);
 
-    hardware_interface::JointStateHandle state_handle_c("C", &pos[2], &vel[2], &eff[2]);
+    hardware_interface::JointStateHandle state_handle_c("front_left_wheel_joint", &pos[2], &vel[2], &eff[2]);
     jnt_state_interface.registerHandle(state_handle_c);
 
-    hardware_interface::JointStateHandle state_handle_d("D", &pos[3], &vel[3], &eff[3]);
+    hardware_interface::JointStateHandle state_handle_d("back_right_wheel_joint", &pos[3], &vel[3], &eff[3]);
     jnt_state_interface.registerHandle(state_handle_d);
 
-    hardware_interface::JointStateHandle state_handle_e("E", &pos[4], &vel[4], &eff[4]);
+    hardware_interface::JointStateHandle state_handle_e("center_right_wheel_joint", &pos[4], &vel[4], &eff[4]);
     jnt_state_interface.registerHandle(state_handle_e);
 
-    hardware_interface::JointStateHandle state_handle_f("F", &pos[5], &vel[5], &eff[5]);
+    hardware_interface::JointStateHandle state_handle_f("front_right_wheel_joint", &pos[5], &vel[5], &eff[5]);
     jnt_state_interface.registerHandle(state_handle_f);
 
     registerInterface(&jnt_state_interface);
 
 
     // connect and register the joint velocity interface
-    hardware_interface::JointHandle vel_handle_a(jnt_state_interface.getHandle("A"), &cmd[0]);
+    hardware_interface::JointHandle vel_handle_a(jnt_state_interface.getHandle("back_left_wheel_joint"), &cmd[0]);
     jnt_vel_interface.registerHandle(vel_handle_a);
 
-    hardware_interface::JointHandle vel_handle_b(jnt_state_interface.getHandle("B"), &cmd[1]);
+    hardware_interface::JointHandle vel_handle_b(jnt_state_interface.getHandle("center_left_wheel_joint"), &cmd[1]);
     jnt_vel_interface.registerHandle(vel_handle_b);
 
-    hardware_interface::JointHandle vel_handle_c(jnt_state_interface.getHandle("C"), &cmd[2]);
+    hardware_interface::JointHandle vel_handle_c(jnt_state_interface.getHandle("front_left_wheel_joint"), &cmd[2]);
     jnt_vel_interface.registerHandle(vel_handle_c);
 
-    hardware_interface::JointHandle vel_handle_d(jnt_state_interface.getHandle("D"), &cmd[3]);
+    hardware_interface::JointHandle vel_handle_d(jnt_state_interface.getHandle("back_right_wheel_joint"), &cmd[3]);
     jnt_vel_interface.registerHandle(vel_handle_d);
 
-    hardware_interface::JointHandle vel_handle_e(jnt_state_interface.getHandle("E"), &cmd[4]);
+    hardware_interface::JointHandle vel_handle_e(jnt_state_interface.getHandle("center_right_wheel_joint"), &cmd[4]);
     jnt_vel_interface.registerHandle(vel_handle_e);
 
-    hardware_interface::JointHandle vel_handle_f(jnt_state_interface.getHandle("F"), &cmd[5]);
+    hardware_interface::JointHandle vel_handle_f(jnt_state_interface.getHandle("front_right_wheel_joint"), &cmd[5]);
     jnt_vel_interface.registerHandle(vel_handle_f);
 
 
