@@ -10,12 +10,15 @@ project(donatello_sim)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rviz
+  gazebo_ros
   xacro
   urdf
   joint_state_publisher
   joint_state_publisher_gui
   robot_state_publisher
 )
+
+find_package(gazebo REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -109,7 +112,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES donatello
-  CATKIN_DEPENDS roscpp rviz xacro urdf joint_state_publisher joint_state_publisher_gui robot_state_publisher 
+  CATKIN_DEPENDS roscpp rviz gazebo_ros xacro urdf joint_state_publisher joint_state_publisher_gui robot_state_publisher 
 #  DEPENDS system_lib
 )
 
@@ -122,6 +125,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library

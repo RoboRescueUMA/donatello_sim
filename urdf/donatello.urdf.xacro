@@ -7,6 +7,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="donatello">
 
     <xacro:include filename="donatello_include.urdf.xacro"/>
+    <xacro:include filename="gazebo.xacro"/>
 
     <xacro:property name="pi" value="3.1415926"/>
     <xacro:property name="sqrt_2" value="1.41421356"/>
@@ -34,6 +35,7 @@
 
     <!-- LINKS -->
 
+    <!-- soluciona el problema del root link con inercia en Gazebo-->
     <link name="dummy_link">
     </link>
 
@@ -223,13 +225,7 @@
 
     <xacro:wheel prefix="front_left_wheel" parent="front_left_axle_link" x="${axle_height}" y="${prism_width/2+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${pi/2}"/>
     <xacro:wheel prefix="front_right_wheel" parent="front_right_axle_link" x="${axle_height}" y="${-(prism_width/2+0.1/2)}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
+
+
+
 </robot>
-
-<!-- 
-EJECUTAR ESTA LINEA ANTES DE HACER catkin_make
-
-rosrun xacro xacro ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf.xacro > ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
-
-check_urdf ~/catkin_ws/src/donatello_sim/urdf/donatello.urdf
-
--->
