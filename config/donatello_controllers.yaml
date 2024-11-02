@@ -1,0 +1,18 @@
+diff_drive_controller:
+
+  type: "diff_drive_controller/DiffDriveController"
+
+  publish_rate: 50.0
+
+  base_frame_id: "base_link"
+
+  left_wheel: ["back_left_wheel_joint","center_left_wheel_joint","front_left_wheel_joint"]
+  right_wheel: ["back_right_wheel_joint","center_right_wheel_joint","front_right_wheel_joint"]
+
+  #left_wheel: ["back_left_wheel_joint"]
+  #right_wheel: ["back_right_wheel_joint"]
+
+  wheel_separation: 0.7
+  wheel_radius: 0.1
+
+  use_stamped_vel: false

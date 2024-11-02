@@ -9,10 +9,13 @@ project(donatello_sim)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  rviz
-  gazebo_ros
   xacro
   urdf
+  rviz
+  gazebo_ros
+  hardware_interface
+  controller_manager
+  diff_drive_controller
   joint_state_publisher
   joint_state_publisher_gui
   robot_state_publisher
@@ -110,9 +113,21 @@ find_package(gazebo REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES donatello
-  CATKIN_DEPENDS roscpp rviz gazebo_ros xacro urdf joint_state_publisher joint_state_publisher_gui robot_state_publisher 
+  INCLUDE_DIRS include
+  LIBRARIES donatello
+
+  CATKIN_DEPENDS 
+  roscpp 
+  xacro 
+  urdf 
+  rviz 
+  gazebo_ros 
+  hardware_interface 
+  controller_manager
+  diff_drive_controller
+  joint_state_publisher 
+  joint_state_publisher_gui 
+  robot_state_publisher 
 #  DEPENDS system_lib
 )
 
@@ -123,7 +138,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
   ${GAZEBO_INCLUDE_DIRS}
 )
@@ -143,6 +158,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/donatello_node.cpp)
 
+add_executable(donatello_hw src/donatello_hw.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -157,6 +174,8 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+target_link_libraries(donatello_hw ${catkin_LIBRARIES})
 
 #############
 ## Install ##

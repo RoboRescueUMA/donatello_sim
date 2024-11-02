@@ -56,6 +56,9 @@
   <build_depend>xacro</build_depend>
   <build_depend>rviz</build_depend>
   <build_depend>gazebo_ros</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>controller_manager</build_depend>
+  <build_depend>diff_drive_controller</build_depend>
   <build_depend>joint_state_publisher</build_depend>
   <build_depend>joint_state_publisher_gui</build_depend>
   <build_depend>robot_state_publisher</build_depend>
@@ -66,6 +69,9 @@
   <exec_depend>xacro</exec_depend>
   <exec_depend>rviz</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>hardware_interface</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>diff_drive_controller</exec_depend>
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
