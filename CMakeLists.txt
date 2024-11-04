@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   urdf
   rviz
   gazebo_ros
+  gazebo_ros_control
   hardware_interface
   controller_manager
   diff_drive_controller
@@ -122,6 +123,7 @@ catkin_package(
   urdf 
   rviz 
   gazebo_ros 
+  gazebo_ros_control
   hardware_interface 
   controller_manager
   diff_drive_controller

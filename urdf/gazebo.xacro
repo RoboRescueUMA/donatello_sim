@@ -8,4 +8,76 @@
         </plugin>
     </gazebo>
 
+    <!-- ros_control plugin -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        </plugin>
+    </gazebo>
+
+    <transmission name="trans_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_left_wheel_joint">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="back_left_wheel_motor">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_right_wheel_joint">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="back_right_wheel_motor">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_joint3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="center_left_wheel_joint">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="center_left_wheel_motor">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_joint4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="center_right_wheel_joint">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="center_right_wheel_motor">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_joint5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="front_left_wheel_joint">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="front_left_wheel_motor">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_joint6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="front_right_wheel_joint">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="front_right_wheel_motor">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
 </robot>
