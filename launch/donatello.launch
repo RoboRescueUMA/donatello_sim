@@ -16,7 +16,7 @@
     <arg name="verbose" value="true"/>
   </include>
 
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -x 0 -y 0 -z 2 -R 0 -P 0 -Y 0 -param robot_description -model donatello" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -x 0 -y 0 -z 3 -R 0 -P 0 -Y 0 -param robot_description -model donatello" />
  
   <!-- Publicar estados de las articulaciones 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />-->

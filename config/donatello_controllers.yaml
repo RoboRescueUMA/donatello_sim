@@ -1,3 +1,30 @@
+#gazebo_ros_control:
+#  pid_gains:
+#    back_left_wheel_joint:
+#      p: 100.0
+#      i: 0.01
+#      d: 0.1
+#    back_right_wheel_joint:
+#      p: 100.0
+#      i: 0.01
+#      d: 0.1
+#    center_left_wheel_joint:
+#      p: 100.0
+#      i: 0.01
+#      d: 0.1
+#    center_right_wheel_joint:
+#      p: 100.0
+#      i: 0.01
+#      d: 0.1
+#    front_left_wheel_joint:
+#      p: 100.0
+#      i: 0.01
+#      d: 0.1
+#    front_right_wheel_joint:
+#      p: 100.0
+#      i: 0.01
+#      d: 0.1
+          
 diff_drive_controller:
 
   type: "diff_drive_controller/DiffDriveController"

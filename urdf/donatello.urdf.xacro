@@ -217,13 +217,13 @@
     </joint>
 
 
-    <xacro:wheel prefix="back_left_wheel" parent="rear_axle_link" x="${-rear_cyl_l-prism_width/2}" y="${rear_width/2+prism_width+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${pi/2}"/>
+    <xacro:wheel prefix="back_left_wheel" parent="rear_axle_link" x="${-rear_cyl_l-prism_width/2}" y="${rear_width/2+prism_width+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
     <xacro:wheel prefix="back_right_wheel" parent="rear_axle_link" x="${-rear_cyl_l-prism_width/2}" y="${-(rear_width/2+prism_width+0.1/2)}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
 
-    <xacro:wheel prefix="center_left_wheel" parent="front_left_axle_link" x="${-axle_height}" y="${prism_width/2+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${pi/2}"/>
+    <xacro:wheel prefix="center_left_wheel" parent="front_left_axle_link" x="${-axle_height}" y="${prism_width/2+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
     <xacro:wheel prefix="center_right_wheel" parent="front_right_axle_link" x="${-axle_height}" y="${-(prism_width/2+0.1/2)}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
 
-    <xacro:wheel prefix="front_left_wheel" parent="front_left_axle_link" x="${axle_height}" y="${prism_width/2+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${pi/2}"/>
+    <xacro:wheel prefix="front_left_wheel" parent="front_left_axle_link" x="${axle_height}" y="${prism_width/2+0.1/2}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
     <xacro:wheel prefix="front_right_wheel" parent="front_right_axle_link" x="${axle_height}" y="${-(prism_width/2+0.1/2)}" z="${-axle_height}" width="${wheel_width}" radius="${wheel_radius}" roll="${-pi/2}"/>
 
 
