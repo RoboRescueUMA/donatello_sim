@@ -1,10 +1,21 @@
 <launch>
-  <!-- Lanzar robot_state_publisher -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
-    <param name="robot_description" command="$/media/ivan/ssd1tb/Uni/RoboRescue/donatello_sim/urdf/donatello.urdf.xacro" />
-  </node>
+    
+    
+    <param name="robot_description"
+           textfile="$(find donatello_model_pkg)/urdf/donatello.urdf" />
+    
+    <node name="joint_state_publisher_gui"
+          pkg="joint_state_publisher_gui"
+          type="joint_state_publisher_gui" />
 
-  <!-- Lanzar Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $/media/ivan/ssd1tb/Uni/RoboRescue/donatello_sim/rviz/donatello.rviz" />
+    <node name="robot_state_publisher"
+          pkg="robot_state_publisher"
+          type="robot_state_publisher" />
+
+    <node name="rviz"
+          pkg="rviz"
+          type="rviz"
+          args="-d $(find donatello_model_pkg)/rviz/donatello.rviz"
+          required="true" />
 </launch>
 
