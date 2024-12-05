@@ -1,5 +1,6 @@
 <launch>
 
+  <remap from="/diff_drive_controller/cmd_vel" to="/cmd_vel"/>
   <!-- Compila el URDF -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find donatello_sim)/urdf/donatello.urdf.xacro'" />
 
@@ -31,6 +32,9 @@
 
   <rosparam command="load" file="$(find donatello_sim)/config/donatello_controllers.yaml"/>
   <node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" args="spawn diff_drive_controller" output="screen"/>
+
+  <!-- Keyboard -->
+  <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
 
 </launch>
